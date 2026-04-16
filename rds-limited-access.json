@@ -1,0 +1,32 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "rds:DescribeGlobalClusters",
+                "rds:DescribeDBInstances",
+                "rds:DescribeDBClusters",
+                "rds:ListTagsForResource"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "rds:RebootDBInstance",
+                "rds:StopDBInstance",
+                "rds:StartDBInstance",
+                "rds:ListTagsForResource"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "rds:db-tag/Environment": "Production",
+                    "aws:PrincipalTag/Department": "DBAdmins"
+                }
+            }
+        }
+    ]
+}
