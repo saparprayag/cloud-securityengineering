@@ -1,0 +1,21 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Denypublics3bucketaccess",
+      "Effect": "Deny",
+      "Action": [
+        "s3:PutAccountPublicAccessBlock",
+        "s3:PutBucketPublicAccessBlock",
+        "s3:DeleteObject",
+        "s3:DeleteBucket",
+        "s3:PutBucketPolicy",
+        "s3:PutObject"
+      ],
+      "Resource": [
+        "arn:aws:s3:::sample-data-insurance-203923923",
+        "arn:aws:s3:::sample-data-insurance-203923923/*"
+      ]
+    }
+  ]
+}
